@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: tienda-moda-API
+  profiles:
+    active: dev

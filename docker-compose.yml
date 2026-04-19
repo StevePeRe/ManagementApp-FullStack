@@ -1,0 +1,54 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg17
+    container_name: managementApp-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: spring
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker-config/database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - managementApp-net
+
+  backend:
+    build:
+      context: ./task-backend
+      dockerfile: Dockerfile
+    container_name: managementApp-backend
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/spring
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - postgres
+    networks:
+      - managementApp-net
+
+  frontend:
+    build:
+      context: ./task-frontend
+      dockerfile: Dockerfile
+    container_name: managementApp-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - managementApp-net
+
+networks:
+  managementApp-net:
+    driver: bridge
+
+volumes:
+  postgres_data:
