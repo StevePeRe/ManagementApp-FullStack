@@ -1,5 +1,10 @@
 spring:
   application:
-    name: tienda-moda-API
+    name: managementApp
   profiles:
     active: dev
+
+security:
+  jwt:
+    secret-key: 4f7e9a2b5c8d1e3f6a9b2c5d8e1f4a7b0c3d6e9f2a5b8c1d4e7f0a3b6c9d2e5f8
+    expiration: 86400000
