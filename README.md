@@ -1,6 +1,6 @@
-# Prueba Técnica Clustag 🛍️
+# ManagementApp 🛍️
 
-Aplicación full-stack para la gestión de tareas, compuesta por un backend en Spring Boot, un frontend en Vue.js y una base de datos PostgreSQL. Todo el sistema está completamente dockerizado para facilitar su ejecución y despliegue.
+Aplicación full-stack para la gestión de tareas, compuesta por un backend en Java Spring Boot, un frontend en Vue.js y una base de datos PostgreSQL. Todo el sistema está completamente dockerizado para facilitar su ejecución y despliegue.
 
 ## 🚀 Tecnologías utilizadas
 
