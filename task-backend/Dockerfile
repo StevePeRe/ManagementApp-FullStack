@@ -10,6 +10,7 @@ RUN mvn clean install -DskipTests
 ENV SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/spring
 ENV SPRING_DATASOURCE_USERNAME=root
 ENV SPRING_DATASOURCE_PASSWORD=password
+ENV SPRING_AI_OLLAMA_BASE_URL=http://ollama:11434
 ENV SPRING_PROFILES_ACTIVE=docker
 
 # Exponer puerto

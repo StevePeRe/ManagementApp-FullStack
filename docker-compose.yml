@@ -15,6 +15,23 @@ services:
     networks:
       - managementApp-net
 
+  ollama:
+    build:
+      context: ./docker-config/ollama
+      dockerfile: Dockerfile
+    container_name: managementApp-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - managementApp-net
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+
   backend:
     build:
       context: ./task-backend
@@ -27,9 +44,11 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/spring
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: password
+      SPRING_AI_OLLAMA_BASE_URL: http://ollama:11434
       SPRING_PROFILES_ACTIVE: docker
     depends_on:
       - postgres
+      - ollama
     networks:
       - managementApp-net
 
@@ -52,3 +71,4 @@ networks:
 
 volumes:
   postgres_data:
+  ollama_data:

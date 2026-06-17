@@ -23,6 +23,10 @@ spring:
   cache:
     type: simple
 
+spring.ai.ollama.base-url: http://host.docker.internal:11434
+spring.ai.ollama.chat.options.model: llama3.2
+spring.ai.ollama.chat.options.temperature: 0.1
+
 security:
   jwt:
     secret-key: 4f7e9a2b5c8d1e3f6a9b2c5d8e1f4a7b0c3d6e9f2a5b8c1d4e7f0a3b6c9d2e5f8
