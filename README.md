@@ -4,26 +4,27 @@ Aplicación full-stack para la gestión de tareas, compuesta por un backend en J
 
 ## 🚀 Tecnologías utilizadas
 
-- Backend: Java + Spring Boot
+- Backend: Java + Spring Boot 4.0.2 + Spring Security + Spring Data JPA + Spring Web MVC
 - Frontend: Vue.js + Vite
 - Base de datos: PostgreSQL (con pgvector)
 - Contenedores: Docker + Docker Compose
+- Documentación automática de API: SpringDoc OpenAPI 2.8.6 - Swagger
+- Autenticación y Seguridad: JWT (JSON Web Tokens)
 
 ## 📦 Arquitectura
 
 El proyecto está dividido en tres servicios principales:
-- backend → API REST que gestiona las tareas
+- backend → API REST que gestiona las tareas y se documenta mediante Swagger
 - frontend → Aplicación web para interactuar con la API
 - postgres → Base de datos persistente
 
 Todos los servicios están conectados mediante una red Docker.
 
-## 🔐 Consideraciones de seguridad
+## 🌐 Documentación
 
-- Comunicación entre contenedores mediante red bridge privada.
-- Variables de entorno para credenciales.
-- Base de datos no expuesta innecesariamente en entornos productivos.
-- Nginx como servidor estático para el frontend.
+- Swagger UI: http://localhost:8080/swagger-ui.html
+- OpenAPI JSON: http://localhost:8080/v3/api-docs
+
 
 ## ⚙️ Requisitos
 
@@ -36,11 +37,6 @@ Antes de ejecutar el proyecto necesitas tener instalado:
 Para construir y levantar toda la aplicación, desde la raíz del proyecto::
 - ```docker-compose up --build```
 
-## 🌐 Acceso a la aplicación
-
-Una vez levantado el entorno:
-- Frontend → http://localhost
-- Backend API → http://localhost:8080/api/tasks
 
 ## 🗄️ Base de datos
 
@@ -49,3 +45,10 @@ La base de datos se inicializa automáticamente mediante un script:
 
 Además, los datos se persisten usando un volumen Docker:
 - ```postgres_data```
+
+## 🔐 Consideraciones de seguridad
+
+- Comunicación entre contenedores mediante red bridge privada.
+- Variables de entorno para credenciales.
+- Base de datos no expuesta innecesariamente en entornos productivos.
+- Nginx como servidor estático para el frontend.
