@@ -1,6 +1,6 @@
 # ManagementApp 🛍️
 
-Aplicación full-stack para la gestión de tareas, compuesta por un backend en Java Spring Boot, un frontend en Vue.js y una base de datos PostgreSQL. Todo el sistema está completamente dockerizado para facilitar su ejecución y despliegue. Las tareas pueden ser escritas en lenguaje natural para luego ser pasadas mediante analisis de IA a un formato legible por el backend.
+Aplicación full-stack para la gestión de tareas, compuesta por un backend en Java Spring Boot, un frontend en Vue.js y una base de datos PostgreSQL. Todo el sistema está completamente dockerizado para facilitar su ejecución y despliegue. Las tareas pueden ser escritas en lenguaje natural para luego ser pasadas mediante analisis de IA a un formato legible por el backend. Posee un modo fallback en caso de que los servicios de Ollama no estén disponibles o no se prefiera el uso del mismo.
 
 ## 🚀 Tecnologías utilizadas
 
@@ -8,6 +8,7 @@ Aplicación full-stack para la gestión de tareas, compuesta por un backend en J
 - Frontend: Vue.js + Vite
 - Base de datos: PostgreSQL (con pgvector)
 - Contenedores: Docker + Docker Compose
+- LLMs: Ollama
 - Documentación automática de API: SpringDoc OpenAPI 2.8.6 - Swagger
 - Autenticación y Seguridad: JWT (JSON Web Tokens)
 
@@ -32,10 +33,15 @@ Antes de ejecutar el proyecto necesitas tener instalado:
 - Docker
 - Docker Compose
 
-## 🐳 Ejecución con Docker
+Uso de Ollama
+- Docker Desktop corriendo.
+- Mínimo 8GB RAM en la máquina.
+- Espacio en disco: ~4GB para descargar el modelo llama3.2.
 
-Para construir y levantar toda la aplicación, desde la raíz del proyecto::
-- ```docker-compose up --build```
+## 🐳 Ejecución con Docker
+  ###Desde la raíz del proyecto
+  Para construir y levantar toda la aplicación:
+  - ```docker-compose up --build```
 
 
 ## 🗄️ Base de datos
