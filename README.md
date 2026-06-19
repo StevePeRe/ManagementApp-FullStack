@@ -39,7 +39,7 @@ Uso de Ollama
 - Espacio en disco: ~4GB para descargar el modelo llama3.2.
 
 ## 🐳 Ejecución con Docker
-  ###Desde la raíz del proyecto
+  ### Desde la raíz del proyecto
   Para construir y levantar toda la aplicación:
   - ```docker-compose up --build```
 
