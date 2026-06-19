@@ -25,4 +25,7 @@ public class TaskAnalysisDTO {
 
     @Schema(description = "Confianza del análisis (0-1)", example = "0.92")
     private Double confidence;
+
+    @Schema(description = "true si se usó IA, false si se usó fallback", example = "true")
+    private Boolean aiUsed = true;
 }

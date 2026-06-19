@@ -26,6 +26,8 @@ spring:
 spring.ai.ollama.base-url: http://host.docker.internal:11434
 spring.ai.ollama.chat.options.model: llama3.2
 spring.ai.ollama.chat.options.temperature: 0.1
+spring.ai.fallback.enabled: true
+spring.ai.timeout-seconds: 30
 
 security:
   jwt:
