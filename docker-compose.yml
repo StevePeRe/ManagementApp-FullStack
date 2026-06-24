@@ -16,6 +16,8 @@ services:
       - managementApp-net
 
   ollama:
+    profiles:
+      - ai
     build:
       context: ./docker-config/ollama
       dockerfile: Dockerfile
