@@ -4,7 +4,7 @@ Aplicación full-stack para la gestión de tareas, compuesta por un backend en J
 
 ## 🚀 Tecnologías utilizadas
 
-- Backend: Java + Spring Boot 4.0.2 + Spring Security + Spring AI + Spring Data JPA + Spring Web MVC
+- Backend: Java + Spring Boot 3.4.5 + Spring Security + Spring AI + Spring Data JPA + Spring Web MVC
 - Frontend: Vue.js + Vite
 - Base de datos: PostgreSQL (con pgvector)
 - Contenedores: Docker + Docker Compose
@@ -38,10 +38,17 @@ Uso de Ollama
 - Mínimo 8GB RAM en la máquina.
 - Espacio en disco: ~4GB para descargar el modelo llama3.2.
 
-## 🐳 Ejecución con Docker
-  ### Desde la raíz del proyecto
-  Para construir y levantar toda la aplicación:
-  - ```docker-compose up --build```
+## 🤖 Inteligencia Artificial (Opcional)
+
+Este proyecto integra IA local mediante **Spring AI + Ollama** para analizar tareas en lenguaje natural. 
+Sin embargo, está diseñado para funcionar **sin dependencias externas** mediante un motor de reglas local (fallback).
+
+### Modos de Ejecución
+
+| Modo | Comando | Descripción | Requisitos |
+|------|---------|-------------|------------|
+| **🚀 Ligero (Default)** | `docker-compose up` | Usa análisis local por reglas. Ideal para demos rápidas. | Docker Desktop |
+| **🧠 IA Completa** | `docker-compose --profile ai up` | Usa modelo LLM `llama3.2` para análisis semántico real. | Docker + 8GB RAM |
 
 
 ## 🗄️ Base de datos
